@@ -1,19 +1,20 @@
-// src/pages/HomePage.jsx
+// HomePage.jsx
 import { Link } from "react-router-dom";
+import "./HomePage.css";
 
-export default function HomePage() {
+function HomePage() {
   return (
-    <div style={{ textAlign: "center", marginTop: "100px" }}>
-      <h1>Welcome to PulseVote</h1>
-      <p>Please login or register to continue</p>
-      <div style={{ marginTop: "20px" }}>
-        <Link to="/login">
-          <button style={{ marginRight: "10px" }}>Login</button>
-        </Link>
-        <Link to="/register">
-          <button>Register</button>
-        </Link>
+    <div className="home-container">
+      <div className="home-card">
+        <h1>International Bank</h1>
+        <p className="subtitle">Secure and modern banking at your fingertips</p>
+        <div className="buttons">
+          <Link to="/login" className="btn primary">Login</Link>
+          <Link to="/register" className="btn secondary">Register</Link>
+        </div>
       </div>
     </div>
   );
 }
+
+export default HomePage;
