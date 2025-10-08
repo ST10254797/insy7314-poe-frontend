@@ -1,0 +1,30 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers vertically */
+  align-items: center; /* centers horizontally */
+  min-height: 100vh; /* full viewport height */
+  width: 100vw; /* full viewport width */
+  background: linear-gradient(135deg, #000000, #0f1111);
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 60px 15vw; /* viewport padding for responsiveness */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.about-container h1 {
+  color: #00ff80;
+  margin-bottom: 25px;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-container p {
+  font-size: 1.1rem;
+  color: #b0ffcc;
+  line-height: 1.8;
+  max-width: 900px;
+  margin-bottom: 20px;
+}

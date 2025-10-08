@@ -1,0 +1,29 @@
+.privacy-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* full screen height */
+  width: 100vw; /* full screen width */
+  background: linear-gradient(135deg, #000000, #0f1111);
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 60px 15vw; /* use viewport padding for responsiveness */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.privacy-container h1 {
+  color: #00ff80;
+  margin-bottom: 20px;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+}
+
+.privacy-container p {
+  font-size: 1.1rem;
+  color: #b0ffcc;
+  line-height: 1.8;
+  max-width: 900px;
+  margin-bottom: 15px;
+}
