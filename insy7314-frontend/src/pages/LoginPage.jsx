@@ -9,9 +9,25 @@ function LoginPage() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // ✅ Match backend regex exactly
+  const regexUser = /^[a-zA-Z0-9_]{4,20}$/;
+  const regexAcc = /^\d{8,12}$/;
+  const regexPass = /^[A-Za-z0-9!@#$%^&*]{8,12}$/;
+
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Attempting login with:", { userName, accNumber, password });
+    setError("");
+
+    // ✅ Frontend whitelist validation (same as backend)
+    if (!regexUser.test(userName)) {
+      return setError("Username must be 4–20 characters (letters, numbers, underscore).");
+    }
+    if (!regexAcc.test(accNumber)) {
+      return setError("Account number must be 8–12 digits only.");
+    }
+    if (!regexPass.test(password)) {
+      return setError("Password must be 8–12 valid characters (!@#$%^&*).");
+    }
 
     try {
       const res = await axios.post("https://localhost:4000/api/auth/login", {
@@ -20,11 +36,7 @@ function LoginPage() {
         password,
       });
 
-      console.log("Login response:", res.data);
-
       localStorage.setItem("token", res.data.token);
-      console.log("Token saved in localStorage");
-
       navigate("/dashboard");
     } catch (err) {
       console.error("Login error:", err.response || err);
