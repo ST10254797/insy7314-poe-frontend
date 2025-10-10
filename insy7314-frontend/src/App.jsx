@@ -23,29 +23,31 @@ function App() {
   const isLoggedIn = isValidToken();
 
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Public routes */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+    <div data-testid="app">
+      <BrowserRouter>
+        <Routes>
+          {/* Public routes */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
 
-        {/* Protected routes */}
-        <Route
-          path="/dashboard"
-          element={isLoggedIn ? <DashboardPage /> : <Navigate to="/login" replace />}
-        />
-        <Route
-          path="/payments"
-          element={isLoggedIn ? <PaymentsPage /> : <Navigate to="/login" replace />}
-        />
+          {/* Protected routes */}
+          <Route
+            path="/dashboard"
+            element={isLoggedIn ? <DashboardPage /> : <Navigate to="/login" replace />}
+          />
+          <Route
+            path="/payments"
+            element={isLoggedIn ? <PaymentsPage /> : <Navigate to="/login" replace />}
+          />
 
-        {/* Catch-all fallback */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
+          {/* Catch-all fallback */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
