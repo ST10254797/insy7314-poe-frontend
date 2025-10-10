@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./PaymentForm.css";
 
-// Full country, currency, SWIFT mapping
 const countryData = {
   USA: { currency: "USD", swift: "CHASUS33XXX" },
   UK: { currency: "GBP", swift: "BARCGB22XXX" },
@@ -23,6 +23,7 @@ const countryData = {
 };
 
 const PaymentForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     amount: "",
     country: "",
@@ -33,6 +34,8 @@ const PaymentForm = () => {
   });
 
   const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("success");
+  const [showToast, setShowToast] = useState(false);
 
   const handleCountryChange = (e) => {
     const selectedCountry = e.target.value;
@@ -53,36 +56,31 @@ const PaymentForm = () => {
 
     const token = localStorage.getItem("token");
     if (!token) {
+      setMessageType("error");
       setMessage("❌ You must be logged in to make a payment");
+      setShowToast(true);
       return;
     }
 
-    // Prepare payload
     const payload = {
-      amount: Number(formData.amount).toFixed(2), // convert to string with 2 decimals
+      amount: Number(formData.amount).toFixed(2),
       currency: formData.currency.toUpperCase(),
       provider: formData.provider,
       recipientAccount: formData.recipientAccount,
       swiftCode: formData.swiftCode.toUpperCase()
     };
 
-    console.log("Submitting payment payload:", payload);
-
     try {
       const res = await axios.post(
         "https://localhost:4000/api/payments",
         payload,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      console.log("Payment response:", res.data);
+      setMessageType("success");
       setMessage(`✅ Success! Transaction ID: ${res.data.transaction._id}`);
+      setShowToast(true);
 
-      // Clear form
       setFormData({
         amount: "",
         country: "",
@@ -92,17 +90,32 @@ const PaymentForm = () => {
         swiftCode: ""
       });
     } catch (err) {
-      console.error("Payment error:", err.response?.data || err.message);
+      setMessageType("error");
       setMessage(`❌ Error: ${err.response?.data?.message || err.message}`);
+      setShowToast(true);
     }
   };
 
+  useEffect(() => {
+    if (showToast) {
+      const timer = setTimeout(() => setShowToast(false), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [showToast]);
+
   return (
     <div className="payment-container">
+      {/* Floating Back Button */}
+      <button
+        className="floating-back-button"
+        onClick={() => navigate("/dashboard")}
+      >
+        ← Back to Dashboard
+      </button>
+
       <div className="card">
         <h2>💳 International Payment</h2>
         <form onSubmit={handleSubmit} className="payment-form">
-          
           <label>Country</label>
           <select
             name="country"
@@ -127,12 +140,7 @@ const PaymentForm = () => {
           />
 
           <label>Currency</label>
-          <input
-            type="text"
-            name="currency"
-            value={formData.currency}
-            readOnly
-          />
+          <input type="text" name="currency" value={formData.currency} readOnly />
 
           <label>Recipient Account</label>
           <input
@@ -145,17 +153,18 @@ const PaymentForm = () => {
           />
 
           <label>SWIFT Code</label>
-          <input
-            type="text"
-            name="swiftCode"
-            value={formData.swiftCode}
-            readOnly
-          />
+          <input type="text" name="swiftCode" value={formData.swiftCode} readOnly />
 
           <button type="submit">Pay Now</button>
         </form>
-        {message && <p className="message">{message}</p>}
       </div>
+
+      {/* Toast message */}
+      {showToast && (
+        <div className={`toast ${messageType}`}>
+          {message}
+        </div>
+      )}
     </div>
   );
 };
