@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { registerUser } from "../services/authService";
 import { useNavigate } from "react-router-dom";
+import "./Register.css";
 
 export default function RegisterPage() {
   const [fullName, setFullName] = useState("");
@@ -11,7 +12,6 @@ export default function RegisterPage() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // Same regex patterns as backend
   const regexName = /^[a-zA-Z\s]+$/;
   const regexID = /^\d{13}$/;
   const regexAcc = /^\d{8,12}$/;
@@ -22,7 +22,6 @@ export default function RegisterPage() {
     e.preventDefault();
     setError("");
 
-    // Frontend input validation
     if (!fullName || !IDNumber || !AccNumber || !userName || !password) {
       return setError("⚠️ All fields are required.");
     }
@@ -43,57 +42,58 @@ export default function RegisterPage() {
   };
 
   return (
-    <form 
-      onSubmit={handleRegister} 
-      autoComplete="off" 
-      style={{ display: "flex", flexDirection: "column", width: "300px", margin: "0 auto" }}
-    >
-      <h2>Register</h2>
+    <div className="register-container">
+      <div className="register-card">
+        <h1>Create Account</h1>
+        <p>Please fill in your details to register.</p>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p className="error-text">{error}</p>}
 
-      <input
-        placeholder="Full Name"
-        name="fullName"
-        autoComplete="new-name"
-        value={fullName}
-        onChange={e => setFullName(e.target.value)}
-      />
+        <form className="register-form" onSubmit={handleRegister} autoComplete="off">
+          <input
+            placeholder="Full Name"
+            name="fullName"
+            autoComplete="new-name"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+          />
 
-      <input
-        placeholder="ID Number"
-        name="IDNumber"
-        autoComplete="off"
-        value={IDNumber}
-        onChange={e => setIDNumber(e.target.value)}
-      />
+          <input
+            placeholder="ID Number"
+            name="IDNumber"
+            autoComplete="off"
+            value={IDNumber}
+            onChange={(e) => setIDNumber(e.target.value)}
+          />
 
-      <input
-        placeholder="Account Number"
-        name="AccNumber"
-        autoComplete="off"
-        value={AccNumber}
-        onChange={e => setAccNumber(e.target.value)}
-      />
+          <input
+            placeholder="Account Number"
+            name="AccNumber"
+            autoComplete="off"
+            value={AccNumber}
+            onChange={(e) => setAccNumber(e.target.value)}
+          />
 
-      <input
-        placeholder="Username"
-        name="userName"
-        autoComplete="new-username"
-        value={userName}
-        onChange={e => setUserName(e.target.value)}
-      />
+          <input
+            placeholder="Username"
+            name="userName"
+            autoComplete="new-username"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+          />
 
-      <input
-        placeholder="Password"
-        type="password"
-        name="password"
-        autoComplete="new-password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
+          <input
+            placeholder="Password"
+            type="password"
+            name="password"
+            autoComplete="new-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-      <button type="submit">Register</button>
-    </form>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
   );
 }

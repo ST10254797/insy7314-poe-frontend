@@ -1,30 +1,38 @@
 // src/pages/DashboardPage.jsx
 import { Link, useNavigate } from "react-router-dom";
+import "../pages/Dashboard.css";
 
 function DashboardPage() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // remove JWT
-    navigate("/login"); // redirect to login page
+    localStorage.removeItem("token");
+    navigate("/login");
   };
 
   return (
-    <div>
-      <h1>Welcome to Your Dashboard</h1>
-      <p>Select an action below:</p>
-      <ul>
-        <li>
-          <Link to="/payments">Make a Payment</Link>
-        </li>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
-      </ul>
-      <button onClick={handleLogout}>Logout</button>
+    <div className="dashboard-container">
+      <button className="logout-button" onClick={handleLogout}>
+        Logout
+      </button>
+
+      <div className="dashboard-content">
+        <h1 className="dashboard-title">Welcome to Your Dashboard</h1>
+        <p className="dashboard-subtitle">Select an action below:</p>
+
+        {/* Payment Info Section */}
+        <div className="payment-info">
+          <h2>International Payments</h2>
+          <p>
+            Use this feature to send payments to anyone worldwide. Secure, fast,
+            and reliable transfers directly from your account.
+          </p>
+        </div>
+
+        <div className="dashboard-actions">
+          <Link to="/payments" className="dashboard-btn">💳 Make a Payment</Link>
+        </div>
+      </div>
     </div>
   );
 }

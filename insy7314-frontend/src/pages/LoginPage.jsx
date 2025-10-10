@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./Login.css"; // ✅ Import the new stylesheet
 
 function LoginPage() {
   const [userName, setUserName] = useState("");
@@ -9,7 +10,6 @@ function LoginPage() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // ✅ Match backend regex exactly
   const regexUser = /^[a-zA-Z0-9_]{4,20}$/;
   const regexAcc = /^\d{8,12}$/;
   const regexPass = /^[A-Za-z0-9!@#$%^&*]{8,12}$/;
@@ -18,7 +18,6 @@ function LoginPage() {
     e.preventDefault();
     setError("");
 
-    // ✅ Frontend whitelist validation (same as backend)
     if (!regexUser.test(userName)) {
       return setError("Username must be 4–20 characters (letters, numbers, underscore).");
     }
@@ -45,30 +44,35 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Account Number"
-          value={accNumber}
-          onChange={(e) => setAccNumber(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-      </form>
+    <div className="login-container">
+      <div className="login-card">
+        <h1>Welcome Back</h1>
+        <p>Login to your account</p>
+
+        {error && <p className="error-text">{error}</p>}
+
+        <form className="login-form" onSubmit={handleLogin}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Account Number"
+            value={accNumber}
+            onChange={(e) => setAccNumber(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 }
