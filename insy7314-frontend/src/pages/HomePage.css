@@ -4,31 +4,31 @@
   align-items: center;
   height: calc(100vh - 70px); /* subtract navbar height */
   width: 100vw;
-  background: linear-gradient(135deg, #000000, #0f1111);
+  background: linear-gradient(135deg, #f5f7fa, #e0e6f0); /* blue gradient */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #fff;
+  color: #333;
 }
 
 .home-card {
-  background-color: #121212;
+  background-color: #ffffff; /* light card */
   border-radius: 16px;
   padding: 40px 50px;
   text-align: center;
   max-width: 700px;
   width: 90%;
-  box-shadow: 0 15px 40px rgba(0, 255, 128, 0.3);
-  border: 2px solid #00ff80;
+  box-shadow: 0 15px 40px rgba(74, 144, 226, 0.3); /* soft blue shadow */
+  border: 2px solid #4a90e2; /* blue border */
 }
 
 .home-card h1 {
   font-size: 2.8rem;
   margin-bottom: 10px;
-  color: #00ff80;
+  color: #4a90e2; /* blue title */
 }
 
 .home-card .subtitle {
   margin-bottom: 25px;
-  color: #b0ffcc;
+  color: #555; /* darker subtitle for readability */
 }
 
 .features {
@@ -40,12 +40,12 @@
 
 .feature h3 {
   margin-bottom: 5px;
-  color: #00ff80;
+  color: #4a90e2; /* blue headings */
 }
 
 .feature p {
   font-size: 0.95rem;
-  color: #b0ffcc;
+  color: #555; /* darker text for readability */
 }
 
 .home-buttons {
@@ -63,21 +63,21 @@
 }
 
 .btn.primary {
-  background-color: #00ff80;
-  color: #000;
+  background-color: #4a90e2;
+  color: #fff;
 }
 
 .btn.primary:hover {
-  background-color: #00e673;
+  background-color: #357ab7;
 }
 
 .btn.secondary {
   background-color: transparent;
-  color: #00ff80;
-  border: 2px solid #00ff80;
+  color: #4a90e2;
+  border: 2px solid #4a90e2;
 }
 
 .btn.secondary:hover {
-  background-color: #00ff80;
-  color: #000;
+  background-color: #4a90e2;
+  color: #fff;
 }

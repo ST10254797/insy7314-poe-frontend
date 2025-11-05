@@ -1,29 +1,106 @@
+html, body {
+margin: 0;
+padding: 0;
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+background: #f5f7fa;       /* light professional background */
+color: #333;               /* dark text for contrast */
+overflow-x: hidden;        /* prevent horizontal scroll */
+overflow-y: auto;          /* allow vertical scroll */
+}
+
+/* Privacy container */
 .privacy-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* full screen height */
-  width: 100vw; /* full screen width */
-  background: linear-gradient(135deg, #000000, #0f1111);
-  color: #fff;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: 60px 15vw; /* use viewport padding for responsiveness */
-  box-sizing: border-box;
-  text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: flex-start; /* stack naturally */
+align-items: center;
+min-height: 100vh;           /* full viewport minimum */
+width: 100%;                 /* full width */
+background: #f5f7fa;
+padding: 60px 15vw;          /* responsive horizontal padding */
+box-sizing: border-box;
+text-align: center;
+}
+
+/* Main heading */
+.privacy-container h1 {
+color: #4a90e2;              /* blue headings */
+margin-bottom: 25px;
+font-size: 2.8rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+/* Paragraph text */
+.privacy-container p {
+font-size: 1.1rem;
+color: #555;                 /* slightly dark gray */
+line-height: 1.8;
+max-width: 900px;
+margin-bottom: 20px;
+}
+
+/* Secondary headings */
+.privacy-container h2 {
+color: #4a90e2;              /* blue headings */
+margin-top: 30px;
+margin-bottom: 15px;
+font-size: 2rem;
+}
+
+/* Lists */
+.privacy-list {
+list-style: none;
+padding: 0;
+margin-bottom: 25px;
+}
+
+.privacy-list li {
+margin-bottom: 10px;
+font-size: 1rem;
+color: #555;
+}
+
+/* Card-style sections for features or points */
+.privacy-feature {
+background-color: #ffffff;    /* white card background */
+color: #333;
+padding: 20px 25px;
+border-radius: 12px;
+max-width: 700px;
+width: 90%;
+text-align: center;
+margin-bottom: 20px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-feature h3 {
+color: #4a90e2;
+margin-bottom: 10px;
+}
+
+.privacy-feature p {
+font-size: 1rem;
+margin: 0;
+line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+.privacy-container {
+padding: 40px 10vw;
 }
 
 .privacy-container h1 {
-  color: #00ff80;
-  margin-bottom: 20px;
-  font-size: 2.8rem;
-  text-transform: uppercase;
+font-size: 2.2rem;
 }
 
-.privacy-container p {
-  font-size: 1.1rem;
-  color: #b0ffcc;
-  line-height: 1.8;
-  max-width: 900px;
-  margin-bottom: 15px;
+.privacy-container h2 {
+font-size: 1.6rem;
+}
+
+.privacy-feature {
+width: 95%;
+padding: 15px 20px;
+}
 }

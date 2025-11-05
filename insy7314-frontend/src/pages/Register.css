@@ -1,111 +1,117 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background: linear-gradient(135deg, #000000, #0f1111);
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #fff;
+margin: 0;
+padding: 0;
+height: 100%;
+width: 100%;
+overflow: hidden;
+background: #f5f7fa;       /* light professional background */
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+color: #333;               /* dark text for contrast */
 }
 
 /* Container centers the card */
 .register-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background: linear-gradient(135deg, #000000, #0f1111);
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+width: 100vw;
+background: #f5f7fa;
 }
 
 /* The card itself */
 .register-card {
-  background-color: #121212;
-  border-radius: 16px;
-  padding: 50px 60px;
-  text-align: center;
-  width: 100%;
-  max-width: 420px;
-  box-shadow: 0 20px 50px rgba(0, 255, 128, 0.3);
-  border: 2px solid #00ff80;
-  box-sizing: border-box;
+background-color: #ffffff;   /* white card background */
+border-radius: 16px;
+padding: 50px 60px;
+text-align: center;
+width: 100%;
+max-width: 420px;
+box-shadow: 0 20px 50px rgba(74, 144, 226, 0.3); /* subtle blue shadow */
+border: 2px solid #4a90e2;  /* blue accent border */
+box-sizing: border-box;
 }
 
 .register-card h1 {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
-  color: #00ff80;
+font-size: 2.4rem;
+margin-bottom: 10px;
+color: #4a90e2;             /* blue heading */
 }
 
 .register-card p {
-  color: #b0ffcc;
-  margin-bottom: 25px;
+color: #555;                /* dark gray text */
+margin-bottom: 25px;
 }
 
 /* Form layout */
 .register-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  align-items: center; /* ✅ Center everything inside */
+display: flex;
+flex-direction: column;
+gap: 18px;
+align-items: center;        /* keep everything centered */
 }
 
 /* Inputs */
 .register-form input {
-  padding: 14px 16px;
-  border-radius: 8px;
-  border: 1px solid #00ff80;
-  background-color: #0f0f0f;
-  color: #fff;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-  width: 100%;
-  max-width: 300px; /* ✅ Same as login form for alignment */
+padding: 14px 16px;
+border-radius: 8px;
+border: 1px solid #4a90e2;  /* blue border */
+background-color: #fff;
+color: #333;
+font-size: 1rem;
+transition: all 0.2s ease;
+width: 100%;
+max-width: 300px;
 }
 
 .register-form input:focus {
-  outline: none;
-  border-color: #00e673;
-  box-shadow: 0 0 10px #00ff80;
+outline: none;
+border-color: #357ab7;       /* darker blue focus */
+box-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
 }
 
-/* ✅ Centered, glowing Register button (matches Login) */
+/* Centered Register button */
 .register-form button {
-  position: relative;
-  background: linear-gradient(90deg, #00ff80, #00e6b8);
-  color: #000;
-  padding: 14px 40px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(0, 255, 128, 0.6);
-  animation: glowPulse 2s infinite;
-  margin-top: 10px;
-  align-self: center; /* ✅ Keeps centered */
+position: relative;
+background: #4a90e2;        /* solid blue button */
+color: #fff;
+padding: 14px 40px;
+border-radius: 10px;
+border: none;
+font-weight: 700;
+font-size: 1.05rem;
+letter-spacing: 0.5px;
+cursor: pointer;
+transition: all 0.3s ease;
+margin-top: 10px;
+align-self: center;
+box-shadow: 0 0 12px rgba(74, 144, 226, 0.6);
 }
 
-/* Hover animation same as login */
 .register-form button:hover {
-  transform: translateY(-2px) scale(1.03);
-  background: linear-gradient(90deg, #00e673, #00ffb3);
-  box-shadow: 0 0 18px rgba(0, 255, 128, 0.8);
-}
-
-/* Glow pulse effect */
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 10px rgba(0, 255, 128, 0.4); }
-  50% { box-shadow: 0 0 20px rgba(0, 255, 128, 0.8); }
-  100% { box-shadow: 0 0 10px rgba(0, 255, 128, 0.4); }
+transform: translateY(-2px) scale(1.03);
+background-color: #357ab7;   /* darker blue on hover */
+box-shadow: 0 0 18px rgba(74, 144, 226, 0.8);
 }
 
 /* Error text */
 .error-text {
-  color: #ff6666;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
+color: #ff6666;
+font-size: 0.9rem;
+margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+.register-card {
+padding: 40px 30px;
+}
+
+.register-form input, .register-form button {
+max-width: 100%;
+}
+
+.register-card h1 {
+font-size: 2rem;
+}
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Login.css"; // ✅ Import the new stylesheet
+import "./Login.css"; // ✅ Your updated stylesheet
 
 function LoginPage() {
   const [userName, setUserName] = useState("");
@@ -46,8 +46,8 @@ function LoginPage() {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h1>Welcome Back</h1>
-        <p>Login to your account</p>
+        <h1>Employee Portal</h1> {/* ✅ More professional heading */}
+        <p>Please login with your credentials</p>
 
         {error && <p className="error-text">{error}</p>}
 
@@ -57,18 +57,24 @@ function LoginPage() {
             placeholder="Username"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
+            required
+            autoComplete="username" 
           />
           <input
             type="text"
             placeholder="Account Number"
             value={accNumber}
             onChange={(e) => setAccNumber(e.target.value)}
+            required
+             autoComplete="off"  
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
+            autoComplete="current-password" 
           />
           <button type="submit">Login</button>
         </form>

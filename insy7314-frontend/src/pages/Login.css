@@ -3,41 +3,41 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden; /* prevent scrollbars */
-  background: linear-gradient(135deg, #000000, #0f1111);
+  overflow: hidden;
+  background: #f5f7fa; /* light gray background for professional look */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #fff;
+  color: #333;
 }
 
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* full viewport height */
-  width: 100vw;  /* full viewport width */
-  background: linear-gradient(135deg, #000000, #0f1111);
+  height: 100vh;
+  width: 100vw;
+  background: #f5f7fa;
 }
 
 .login-card {
-  background-color: #121212;
+  background-color: #ffffff; /* white card for clean look */
   border-radius: 16px;
-  padding: 50px 60px;
+  padding: 50px 40px;
   text-align: center;
   width: 100%;
-  max-width: 420px;
-  box-shadow: 0 20px 50px rgba(0, 255, 128, 0.3);
-  border: 2px solid #00ff80;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  border: 1px solid #e0e0e0; /* soft border */
   box-sizing: border-box;
 }
 
 .login-card h1 {
-  font-size: 2.4rem;
+  font-size: 2rem;
   margin-bottom: 10px;
-  color: #00ff80;
+  color: #4a90e2; /* professional blue */
 }
 
 .login-card p {
-  color: #b0ffcc;
+  color: #555;
   margin-bottom: 25px;
 }
 
@@ -45,61 +45,52 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  align-items: center; /* ✅ Center everything inside the form */
+  align-items: center;
 }
 
 .login-form input {
-  padding: 14px 16px;
-  border-radius: 8px;
-  border: 1px solid #00ff80;
-  background-color: #0f0f0f;
-  color: #fff;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #333;
   font-size: 1rem;
   transition: all 0.2s ease;
   width: 100%;
-  max-width: 300px; /* ✅ Keeps input width consistent and centered */
+  max-width: 300px;
 }
 
 .login-form input:focus {
   outline: none;
-  border-color: #00e673;
-  box-shadow: 0 0 10px #00ff80;
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
 }
 
-/* ✅ Centered, glowing, and animated Login Button */
+/* Login Button */
 .login-form button {
-  position: relative;
-  background: linear-gradient(90deg, #00ff80, #00e6b8);
-  color: #000;
-  padding: 14px 40px;
-  border-radius: 10px;
+  background: #4a90e2;
+  color: #fff;
+  padding: 12px 36px;
+  border-radius: 8px;
   border: none;
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.5px;
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(0, 255, 128, 0.6);
-  animation: glowPulse 2s infinite;
+  transition: all 0.2s ease;
   margin-top: 10px;
-  align-self: center; /* ✅ Keeps button centered in flex container */
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .login-form button:hover {
-  transform: translateY(-2px) scale(1.03);
-  background: linear-gradient(90deg, #00e673, #00ffb3);
-  box-shadow: 0 0 18px rgba(0, 255, 128, 0.8);
+  background: #357ab7;
+  transform: scale(1.03);
 }
 
-/* ✨ Subtle glowing pulse animation */
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 10px rgba(0, 255, 128, 0.4); }
-  50% { box-shadow: 0 0 20px rgba(0, 255, 128, 0.8); }
-  100% { box-shadow: 0 0 10px rgba(0, 255, 128, 0.4); }
-}
-
+/* Error Text */
 .error-text {
-  color: #ff6666;
+  color: #d9534f; /* red for errors */
   font-size: 0.9rem;
   margin-bottom: 10px;
 }
