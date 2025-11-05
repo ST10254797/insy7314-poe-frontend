@@ -46,7 +46,7 @@ function LoginPage() {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h1>Employee Portal</h1> {/* ✅ More professional heading */}
+        <h1>Login Portal</h1> {/* ✅ More professional heading */}
         <p>Please login with your credentials</p>
 
         {error && <p className="error-text">{error}</p>}
