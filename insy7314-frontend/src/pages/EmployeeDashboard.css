@@ -1,122 +1,170 @@
 html, body {
-margin: 0;
-padding: 0;
-height: 100%;
-width: 100%;
-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-background: #f5f7fa;
-color: #333;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  box-sizing: border-box;
 }
 
+/* Layout */
+/* Layout */
 .employee-container {
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 40px 20px;
-min-height: 100vh;
-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* center horizontally */
+  padding: 40px;
+  min-height: 100vh;
+  width: 100%;
 }
 
+/* Table Card */
+.table-card {
+  width: 80%;          /* smaller width */
+  max-width: 1200px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px 30px;
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.2);
+  border: 1px solid #dce6f5;
+  overflow-x: auto;
+  margin: 0 auto;      /* ensures centering even if width < 100% */
+}
+
+/* Employee header */
 .employee-header {
-width: 100%;
-max-width: 1200px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 20px;
+  text-align: center;  /* center the title */
+  margin-bottom: 20px;
 }
 
 .employee-header h1 {
-color: #4a90e2;
-font-size: 2rem;
+  color: #4a90e2;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
 }
 
-.employee-header button {
-background: #4a90e2;
-color: #fff;
-border: none;
-padding: 10px 24px;
-border-radius: 8px;
-font-weight: 600;
-cursor: pointer;
-transition: all 0.2s ease;
+
+.employee-header h1 {
+  color: #4a90e2;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
 }
 
-.employee-header button {
-background: #357ab7;
-transform: scale(1.03);
-}
-
+/* Table Card */
 .table-card {
-background-color: #ffffff;
-border-radius: 16px;
-width: 100%;
-max-width: 1200px;
-padding: 20px;
-box-shadow: 0 12px 40px rgba(74, 144, 226, 0.2);
-border: 2px solid #4a90e2;
-overflow-x: auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  padding: 20px 30px;
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.2);
+  border: 1px solid #dce6f5;
+  overflow-x: auto;
 }
 
 .transaction-table {
-width: 100%;
-border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.transaction-table th, .transaction-table td {
-padding: 12px 16px;
-border-bottom: 1px solid #e0e0e0;
-text-align: left;
+.transaction-table th,
+.transaction-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
 }
 
 .transaction-table th {
-background-color: #f0f6ff;
-color: #4a90e2;
-font-weight: 600;
+  background-color: #f0f6ff;
+  color: #4a90e2;
+  font-weight: 600;
 }
 
-.transaction-table tr {
-background-color: #f5f7fa;
+.transaction-table tr:nth-child(even) {
+  background-color: #f9fbff;
 }
 
-.transaction-table button {
-background: #4a90e2;
-color: #fff;
-border: none;
-padding: 6px 14px;
-border-radius: 6px;
-font-weight: 600;
-cursor: pointer;
-transition: all 0.2s ease;
+/* Buttons */
+.actions button {
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: 0.2s;
 }
 
-.transaction-table button {
-background: #357ab7;
-transform: scale(1.05);
+.actions button:hover:not(:disabled) {
+  background: #357ab7;
+  transform: scale(1.03);
 }
 
-.error-text, .success-text {
-margin-top: 10px;
-font-size: 0.95rem;
-font-weight: 600;
+.actions button:disabled {
+  background: #b0c8e6;
+  cursor: not-allowed;
 }
 
-.error-text {
-color: #d9534f;
+/* Status badges */
+.status-badge {
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
-.success-text {
-color: #28a745;
+.status-badge.pending {
+  background: #fff3cd;
+  color: #856404;
 }
 
+.status-badge.verified {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.submitted {
+  background: #cce5ff;
+  color: #004085;
+}
+
+/* Toast */
+.toast {
+  padding: 14px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+}
+
+.toast.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.toast.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-.employee-header {
-flex-direction: column;
-gap: 10px;
-}
+  .employee-container {
+    padding: 20px;
+  }
 
-.transaction-table th, .transaction-table td {
-padding: 10px 12px;
-}
+  .transaction-table th,
+  .transaction-table td {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
 }
