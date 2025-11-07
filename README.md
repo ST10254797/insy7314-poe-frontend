@@ -1,9 +1,22 @@
 # INSY7314 POE Frontend
 
+## Group Members
+- **Cristiano**
+- **Keyur**
+- **Divi**
+- **Shaldon**
+
+**Student Number**: ST10254797
+
+---
+
 ## Project Overview
 This is the frontend application for the INSY7314 Portfolio of Evidence (POE) project. The application provides a user interface for [describe your application's purpose].
 
 ## Table of Contents
+- [Group Members](#group-members)
+- [Project Overview](#project-overview)
+- [Changelog from Part 2](#changelog-from-part-2)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Prerequisites](#prerequisites)
