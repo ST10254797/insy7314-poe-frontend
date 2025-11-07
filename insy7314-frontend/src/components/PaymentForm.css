@@ -1,41 +1,49 @@
 .payment-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* align to top so we can scroll */
+  align-items: flex-start;
   min-height: 100vh;
   width: 100vw;
   padding: 40px 20px;
-  background: #f5f7fa;       /* light professional background */
+  background: linear-gradient(135deg, #f0f4ff, #d9e2ff); /* soft blue gradient */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  overflow-y: auto; /* allow vertical scrolling */
+  overflow-y: auto;
   box-sizing: border-box;
-  position: relative; /* needed for toast positioning */
+  position: relative;
 }
 
 /* Card styling */
 .card {
-  background-color: #ffffff;  /* white card background */
-  border-radius: 20px;
+  background-color: #ffffff;
+  border-radius: 16px; /* slightly softer corners */
   padding: 40px 30px;
   width: 100%;
   max-width: 500px;
-  box-shadow: 0 20px 50px rgba(74, 144, 226, 0.2); /* subtle blue shadow */
-  border: 2px solid #4a90e2; /* blue border */
+  box-shadow: 0 15px 30px rgba(74, 144, 226, 0.15); /* subtle shadow */
+  border: 1px solid #4a90e2;
   box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(74, 144, 226, 0.2);
 }
 
 /* Heading */
 .card h2 {
   text-align: center;
-  margin-bottom: 10px;
-  color: #4a90e2;            /* blue heading */
+  margin-bottom: 15px;
+  color: #1a3d8f; /* deeper blue for text */
+  font-size: 1.8rem;
 }
 
 /* Info text */
 .info-text {
   text-align: center;
-  color: #555;               /* dark gray for contrast */
+  color: #333;
   margin-bottom: 25px;
+  font-size: 1rem;
 }
 
 /* Form */
@@ -47,53 +55,46 @@
 
 .payment-form label {
   font-weight: 600;
-  color: #555;
+  color: #1a3d8f;
 }
 
 .payment-form input,
 .payment-form select {
   padding: 14px;
   border-radius: 10px;
-  border: 1px solid #4a90e2; /* blue border */
-  background-color: #ffffff;  /* white input background */
-  color: #333;                /* dark text */
+  border: 1px solid #4a90e2;
+  background-color: #f8faff; /* very light blue input background */
+  color: #333;
   font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .payment-form input:focus,
 .payment-form select:focus {
   outline: none;
-  border-color: #357ab7; /* darker blue focus */
-  box-shadow: 0 0 10px #4a90e2;
+  border-color: #357ab7;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
 }
 
 /* Pay Now button */
 .payment-form button {
   margin-top: 20px;
   padding: 14px 40px;
-  background: linear-gradient(90deg, #4a90e2, #357ab7); /* blue gradient */
+  background: linear-gradient(90deg, #4a90e2, #357ab7);
   color: #fff;
   font-size: 1.05rem;
   font-weight: 700;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 0 12px rgba(74, 144, 226, 0.6);
   transition: all 0.3s ease;
   align-self: center;
-  animation: glowPulseBlue 2s infinite;
 }
 
 .payment-form button:hover {
-  transform: translateY(-2px) scale(1.03);
+  transform: translateY(-2px) scale(1.02);
   background: linear-gradient(90deg, #357ab7, #4a90e2);
-  box-shadow: 0 0 18px rgba(74, 144, 226, 0.8);
-}
-
-@keyframes glowPulseBlue {
-  0% { box-shadow: 0 0 10px rgba(74, 144, 226, 0.4); }
-  50% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.8); }
-  100% { box-shadow: 0 0 10px rgba(74, 144, 226, 0.4); }
+  box-shadow: 0 0 12px rgba(74, 144, 226, 0.25);
 }
 
 /* Toast notifications */
@@ -104,9 +105,9 @@
   background-color: #ffffff;
   padding: 15px 25px;
   border-radius: 12px;
-  color: #333;
+  color: #1a3d8f;
   font-weight: 600;
-  box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+  box-shadow: 0 5px 15px rgba(74, 144, 226, 0.2);
   z-index: 9999;
   opacity: 0.95;
   animation: slideIn 0.3s ease-out;

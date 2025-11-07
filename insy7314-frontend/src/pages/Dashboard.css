@@ -17,10 +17,10 @@ display: flex;
 flex-direction: column;
 width: 100vw;
 min-height: 100vh;
-padding-top: 120px;
+padding-top: 200px;
 overflow-y: auto;
 margin: 0;
-background: linear-gradient(135deg, #0a0a0a, #111111);
+background: linear-gradient(135deg, #ffffff, #ffffff);
 }
 
 /* Logout button */
@@ -104,35 +104,37 @@ box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
 }
 
 /* Payment Info Section */
+/* Payment Info Section */
 .payment-info {
-width: 100vw;
-background-color: #111111;
-padding: 40px 20px;
-color: #00fffc;
-text-align: center;
-line-height: 1.5;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 15px;
-box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-margin: 0;
+  width: 100vw;
+  background-color: #f0f4ff; /* light blue background */
+  padding: 40px 20px;
+  color: #1a3d8f; /* darker blue text */
+  text-align: center;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 128, 0.1); /* soft subtle shadow */
+  margin: 0;
 }
 
 .payment-info h2 {
-color: #00fffc;
-margin-bottom: 10px;
-font-size: 1.8rem;
-text-shadow: 0 0 6px #00fffc, 0 0 15px #00b3ff;
+  color: #1a3d8f; /* match paragraph text */
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  text-shadow: none; /* remove neon glow */
 }
 
 .payment-info p {
-font-size: 1rem;
-margin: 0;
-max-width: 1200px;
-color: #a0f0ff;
+  font-size: 1rem;
+  margin: 0;
+  max-width: 1200px;
+  color: #1a3d8f; /* match heading */
 }
+
 
 /* Transactions Table */
 .table-card {

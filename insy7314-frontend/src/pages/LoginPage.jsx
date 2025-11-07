@@ -67,7 +67,7 @@ try {
 
 return ( <div className="login-container"> <div className="login-card"> <h1>Login Portal</h1> <p>Please login with your credentials</p>
 
-```
+
     {error && <p className="error-text">{error}</p>}
 
     <form className="login-form" onSubmit={handleLogin}>

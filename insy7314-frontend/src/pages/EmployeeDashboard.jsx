@@ -7,6 +7,12 @@ const EmployeeDashboard = () => {
   const [toast, setToast] = useState({ message: "", type: "" });
   const token = localStorage.getItem("token");
 
+    // --- Define handleLogout inside the component ---
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/HomePage"; // redirect to login page
+  };
+
   // Fetch transactions
   const fetchTransactions = async () => {
     try {
@@ -59,6 +65,7 @@ const EmployeeDashboard = () => {
     <div className="employee-container">
       <div className="employee-header">
         <h1>Employee Dashboard</h1>
+        <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </div>
 
       {toast.message && (

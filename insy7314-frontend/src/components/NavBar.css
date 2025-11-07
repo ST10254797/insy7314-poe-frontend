@@ -54,7 +54,7 @@
 .nav-auth {
   display: flex;
   gap: 15px;
-  margin-right: 30px;
+  margin-right: -70px;
 }
 
 .btn {
@@ -111,4 +111,18 @@
   .logo {
     font-size: 1.3rem;
   }
+}
+.btn.employee-btn {
+  background-color: #50c878; /* fresh green */
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn.employee-btn:hover {
+  background-color: #3da866;
+  transform: scale(1.05);
 }

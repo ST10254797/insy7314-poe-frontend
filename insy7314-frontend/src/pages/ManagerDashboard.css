@@ -1,102 +1,124 @@
 .manager-dashboard-container {
-  min-height: 100vh;
-  width: 100%;
-  background: linear-gradient(135deg, #f5f7fa, #e0e6f0);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 80px 30px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+min-height: 100vh;
+width: 100%;
+background: linear-gradient(135deg, #f5f7fa, #e0e6f0);
+display: flex;
+flex-direction: column;
+align-items: stretch; /* stretch cards full width */
+ padding: 150px 200px 50px 60px; /* more space on top to avoid header cut-off */
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.manager-dashboard-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+margin-bottom: 20px; /* extra space below header */
 }
 
 .dashboard-title {
-  font-size: 2.2rem;
-  color: #4a90e2;
-  margin-bottom: 10px;
+font-size: 2.2rem;
+color: #4a90e2;
 }
 
 .dashboard-subtitle {
-  color: #555;
-  font-size: 1rem;
-  margin-bottom: 30px;
+color: #555;
+font-size: 1rem;
+margin-bottom: 40px; /* more spacing before cards */
 }
 
 .card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(74, 144, 226, 0.2);
-  padding: 25px 30px;
-  width: 100%;
-  max-width: 900px;
-  margin-bottom: 40px;
+background-color: #fff;
+border-radius: 0; /* remove rounding for full-width effect */
+box-shadow: none; /* optional: remove shadow for edge-to-edge look */
+padding: 25px 20px; /* reduce horizontal padding if you want full width edge-to-edge */
+width: 100%; /* stretch full width */
+max-width: 100%; /* ensure no limit */
+margin-bottom: 40px;
 }
+
 
 .add-employee-card h2,
 .employee-list-card h2 {
-  color: #357ab7;
-  margin-bottom: 15px;
+color: #357ab7;
+margin-bottom: 15px;
 }
 
 .employee-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: space-between;
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+justify-content: space-between;
 }
 
 .employee-form input,
 .employee-form select {
-  flex: 1 1 45%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 0.95rem;
+flex: 1 1 45%;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 8px;
+font-size: 0.95rem;
 }
 
 .employee-form button {
-  background: linear-gradient(90deg, #4a90e2, #357ab7);
-  color: #fff;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
+background: linear-gradient(90deg, #4a90e2, #357ab7);
+color: #fff;
+border: none;
+padding: 12px 25px;
+border-radius: 8px;
+cursor: pointer;
+font-weight: 600;
+transition: all 0.3s ease;
 }
 
 .employee-form button:hover {
-  background: linear-gradient(90deg, #357ab7, #4a90e2);
-  transform: scale(1.05);
+background: linear-gradient(90deg, #357ab7, #4a90e2);
+transform: scale(1.05);
 }
 
 .employee-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
+width: 100%;
+border-collapse: collapse;
+margin-top: 15px;
 }
 
 .employee-table th,
 .employee-table td {
-  padding: 14px 16px;
-  text-align: left;
-  border-bottom: 1px solid #e0e0e0;
+padding: 14px 16px;
+text-align: left;
+border-bottom: 1px solid #e0e0e0;
 }
 
 .employee-table th {
-  background-color: #f0f6ff;
-  color: #4a90e2;
-  font-weight: 600;
+background-color: #f0f6ff;
+color: #4a90e2;
+font-weight: 600;
+}
+
+.logout-btn {
+background-color: #dc3545;
+color: #fff;
+border: none;
+border-radius: 5px;
+padding: 10px 20px;
+font-weight: 600;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+background-color: #c82333;
 }
 
 .toast-message {
-  background-color: #e0f7e9;
-  color: #155724;
-  border: 1px solid #c3e6cb;
-  padding: 12px 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  width: 100%;
-  max-width: 900px;
-  text-align: center;
-  font-weight: 600;
+background-color: #e0f7e9;
+color: #155724;
+border: 1px solid #c3e6cb;
+padding: 12px 20px;
+border-radius: 8px;
+margin-bottom: 20px;
+width: 100%;
+text-align: center;
+font-weight: 600;
 }
