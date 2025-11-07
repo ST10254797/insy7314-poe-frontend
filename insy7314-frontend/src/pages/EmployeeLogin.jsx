@@ -1,42 +1,50 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Login.css"; // Reuse your login CSS theme
+import "./Login.css";
 
 export default function EmployeeLogin() {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [error, setError] = useState("");
+const [loading, setLoading] = useState(false);
 const navigate = useNavigate();
 
 const handleLogin = async (e) => {
 e.preventDefault();
 setError("");
-console.log("Login button clicked"); // ✅ confirm function fires
-console.log("Email:", email, "Password:", password);
+setLoading(true);
+console.log("Login button clicked", { email, password });
 
 
 try {
   const res = await axios.post(
     "https://localhost:4000/api/employee/login",
     { email, password },
-    { timeout: 5000 } // optional: detect if request hangs
+    { timeout: 5000 }
   );
 
-  console.log("Response from server:", res.data); // ✅ check what comes back
+  console.log("Response from server:", res.data);
 
-  if (res.data && res.data.token) {
+  if (res.data && res.data.token && res.data.role) {
     localStorage.setItem("token", res.data.token);
-    localStorage.setItem("role", res.data.role);
+    localStorage.setItem("role", res.data.role.toLowerCase().trim());
     console.log("Login successful, navigating...");
-    navigate("/employee-dashboard");
+
+    if (res.data.role.toLowerCase() === "manager") {
+      navigate("/manager-dashboard");
+    } else {
+      navigate("/employee-dashboard");
+    }
   } else {
-    console.warn("No token received from server");
-    setError("Login failed: no token received");
+    console.warn("No token or role received from server");
+    setError("Login failed: invalid server response");
   }
 } catch (err) {
   console.error("Login error:", err.response || err.message);
   setError(err.response?.data?.message || "Login failed");
+} finally {
+  setLoading(false);
 }
 
 
@@ -50,7 +58,7 @@ placeholder="Email"
 value={email}
 onChange={(e) => setEmail(e.target.value)}
 required
-autoComplete="username" // suggested by browser
+autoComplete="username"
 />
 <input
 type="password"
@@ -59,6 +67,7 @@ value={password}
 onChange={(e) => setPassword(e.target.value)}
 required
 autoComplete="current-password"
-/> <button type="submit">Login</button> </form> </div> </div>
+/> <button type="submit" disabled={loading}>
+{loading ? "Logging in..." : "Login"} </button> </form> </div> </div>
 );
 }
